@@ -1,0 +1,113 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>PMMap</title>
+    <link href="https://fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic" rel="stylesheet">
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- ionicmaterial css start -->
+    <!-- <link href="lib/ion-md-input/css/ion-md-input.min.css" rel="stylesheet"> -->
+    <!-- <link href="lib/ionic-material/ionic.material.min.css" rel="stylesheet"> -->
+    <!-- ionicmaterial css end -->
+
+    <link href="styles/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="styles/ionic.app.css" rel="stylesheet">
+    -->
+
+
+    
+    <!-- ionic/angularjs js -->
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/restangular/dist/restangular.js"></script>
+    <script src="bower_components/Chart.js/Chart.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- ionicmaterial js start -->
+    <!-- <script src="lib/ionic-material/ionic.material.min.js"></script> -->
+    <!-- <script src="lib/ion-md-input/js/ion-md-input.min.js"></script> -->
+    <!-- ionicmaterial js start -->
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <!-- <script src="cordova.js"></script> -->
+    
+    <!-- Google Maps Service -->
+   
+    <!-- your app's js -->
+    <!-- build:js scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/configuration.js"></script>
+    <script src="scripts/authService.js"></script>
+    <script src="scripts/rootControllers.js"></script>
+    <script src="scripts/loginControllers.js"></script>
+    <script src="scripts/segnalazioniControllers.js"></script>
+    <script src="scripts/brogliaccioControllers.js"></script>
+    <script src="scripts/reportControllers.js"></script>
+    <script src="scripts/mapsControllers.js"></script>
+    <script src="scripts/cordovaControllers.js"></script>
+    <script src="scripts/filters.js"></script>
+    <script src="scripts/directives.js"></script>  
+    <!-- endbuild -->
+  </head>
+
+
+<body ng-app="myApp" ng-controller="AppCtrl" layout="row" ng-cloak>
+
+
+
+ <div layout="column" tabIndex="-1" role="main" flex>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings">
+          <md-icon md-svg-icon="images/menu.svg"></md-icon>
+        </md-button>
+        <h2>
+          <span>Toolbar with Icon Buttons</span>
+        </h2>
+        <span flex></span>
+        <md-menu md-position-mode="target-right target" >
+          <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+            <md-icon md-menu-origin md-svg-icon="images/menu.svg"></md-icon>
+          </md-button>
+          <md-menu-content width="4" >
+            <md-menu-item ng-repeat="item in [1, 2, 3]">
+              <md-button ng-click="ctrl.announceClick($index)">
+                  <div layout="row">
+                    <p flex>Option {{item}}</p>
+                    <md-icon md-menu-align-target md-svg-icon="images/menu.svg" style="margin: auto 3px auto 0;"></md-icon>
+                  </div>
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
+      </div>
+    </md-toolbar>
+
+    <md-content ng-view md-scroll-y flex layout-padding>
+        <ui-view></ui-view>
+    </md-content>
+  </div>
+    
+
+</body>
+</html>

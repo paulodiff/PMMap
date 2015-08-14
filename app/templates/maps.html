@@ -1,0 +1,56 @@
+     
+<div layout="row" layout-align="space-around center">
+  <div>
+    <md-input-container>
+      <label>Indirizzo</label>
+        <input type="text" ng-model="address2geocode" required>
+        </md-input-container>
+  </div>
+  <div>
+    <md-button class="md-raised" ng-click='geocodeAddress()'>Geocode!</md-button>
+  </div>
+</div>
+
+
+<ui-gmap-google-map center='map.center' 
+                    zoom='map.zoom' draggable="true" 
+                    options="'options'"
+                    events='map.mapEvents'
+                    >
+
+        <ui-gmap-markers models="randomMarkers" 
+                         coords="'self'" 
+                         options="'options'"
+                         icon="'icon'"
+                         click="onMarkerClicked"
+                         doRebuildAll="true">
+                         
+              <ui-gmap-windows show="'showWindow'" closeClick="'closeClick'" ng-cloak>
+                <div>
+                    <p ng-non-bindable>{{text2display}}</p>
+                    <p ng-non-bindable>This is an info window at  {{ longitude | number:4 }}!</p>
+                </div>
+            </ui-gmap-windows>
+        </ui-gmap-markers>
+
+        
+
+      <ui-gmap-circle 
+              ng-repeat="c in circles track by c.id" 
+              center="c.center"     stroke="c.stroke" fill="c.fill" radius="c.radius"
+                visible="c.visible" geodesic="c.geodesic" editable="c.editable" draggable="c.draggable" clickable="c.clickable" control="c.control"></ui-gmap-circle>
+
+
+
+        <ui-gmap-polyline ng-repeat="p in polylines" 
+                          path="p.path" 
+                          stroke="p.stroke" 
+                          visible='p.visible'
+                          geodesic='p.geodesic' 
+                          fit="false" 
+                          editable="p.editable" 
+                          draggable="p.draggable" 
+                          icons='p.icons'>
+        </ui-gmap-polyline>
+
+</ui-gmap-google-map>
