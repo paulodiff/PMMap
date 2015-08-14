@@ -34,7 +34,7 @@ $scope.randomMarkers = [
             labelContent: '0152',
             labelAnchor: "22 0",
             labelClass: "marker-labels",
-            draggable: false
+            draggable: true
           }
         },
         {

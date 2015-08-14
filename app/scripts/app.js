@@ -49,7 +49,7 @@ angular.module('myApp', ['ngMaterial',
     //.when('/c?id', '/contacts/:id')
     //.when('/user/:id', '/contacts/:id')
     // If the url is ever invalid, e.g. '/asdf', then redirect to '/' aka the home state
-    $urlRouterProvider.otherwise('/help1');
+    $urlRouterProvider.otherwise('/maps1');
     
     $stateProvider.state('menu', {
             url: "/menu",
