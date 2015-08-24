@@ -38,6 +38,26 @@ angular.module('myApp', ['ngMaterial',
     });
 })
 
+.run(['$templateCache', function ($templateCache) {
+  $templateCache.put('searchbox.tpl.html', '<input id="pac-input" class="pac-controls" type="text" placeholder="Search">');
+  $templateCache.put('window.tpl.html', '<div ng-controller="WindowCtrl" ng-init="showPlaceDetails(parameter)">{{place.name}}</div>');
+}])
+
+// config iconProvider
+.config(function($mdThemingProvider, $mdIconProvider){
+                  $mdIconProvider
+                      .defaultIconSet("images/iconset2.svg")
+                      //.iconSet('social', "images/iconset2.svg")
+                      .icon("menu"       , "images/menu.svg"        , 24)
+                      .icon("share"      , "images/share.svg"       , 24)
+                      .icon("google_plus", "images/google_plus.svg" , 512)
+                      .icon("hangouts"   , "images/hangouts.svg"    , 512)
+                      .icon("twitter"    , "images/twitter.svg"     , 512)
+                      .icon("phone"      , "images/phone.svg"       , 512);
+                      $mdThemingProvider.theme('default')
+                          .primaryPalette('brown')
+                          .accentPalette('red');
+})
 
 
 // ui.router configuration
@@ -96,6 +116,15 @@ angular.module('myApp', ['ngMaterial',
         accessLogged: false, 
         configAction: 'view'
   });
+
+  $stateProvider.state('positions',{
+        url: '/positions',
+        templateUrl: "templates/positionsEditor.html",
+        controller: "positionController",
+        accessLogged: false, 
+        configAction: 'view'
+  });
+
    /*
     $stateProvider.state('menu.report',{
         url: '/report',

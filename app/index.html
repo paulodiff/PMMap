@@ -51,6 +51,9 @@
     <!-- cordova script (this will be a 404 during development) -->
     <!-- <script src="cordova.js"></script> -->
     
+
+
+
     <!-- Google Maps Service -->
    
     <!-- your app's js -->
@@ -60,6 +63,7 @@
     <script src="scripts/authService.js"></script>
     <script src="scripts/rootControllers.js"></script>
     <script src="scripts/loginControllers.js"></script>
+    <script src="scripts/positionsControllers.js"></script>
     <script src="scripts/segnalazioniControllers.js"></script>
     <script src="scripts/brogliaccioControllers.js"></script>
     <script src="scripts/reportControllers.js"></script>
@@ -73,36 +77,78 @@
 
 <body ng-app="myApp" ng-controller="AppCtrl" layout="row" ng-cloak>
 
+  <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+      <md-toolbar class="md-tall md-hue-2">
+        <span flex></span>
+        <div layout="column" class="md-toolbar-tools-bottom inset">
+          <user-avatar></user-avatar>
+          <span></span>
+          <div>Firstname Lastname</div>
+          <div>email@domainname.com</div>
+        </div>
+      </md-toolbar>
+      <md-list>
+      <md-item ng-repeat="item in menu">
+        <a>
+          <md-item-content md-ink-ripple layout="row" layout-align="start center">
+            <div class="inset">
+              <md-icon md-svg-icon="{{item.icon}}"></md-icon>
+            </div>
+            <div class="inset">{{item.title}}
+            </div>
+          </md-item-content>
+        </a>
+      </md-item>
+      <md-divider></md-divider>
+      <md-subheader>Management</md-subheader>
+      <md-item ng-repeat="item in admin">
+        <a>
+          <md-item-content md-ink-ripple layout="row" layout-align="start center">
+            <div class="inset">
+              <md-icon md-svg-icon="{{item.icon}}"></md-icon>
+            </div>
+            <div class="inset">{{item.title}}
+            </div>
+          </md-item-content>
+        </a>
+      </md-item>
+<md-item>
+<a class="md-button md-default-theme" 
+   ng-href="#/help1" 
+   ng-click="focusSection()" tabindex="0" 
+   href="#/help1"><span class="ng-binding ng-scope">
+  HELP
+  </span><!-- ngIf: isSelected() -->
+</a>
+</md-item>
+
+<md-item>
+<a class="md-button md-default-theme" 
+   ng-href="#/maps1" 
+   ng-click="focusSection()" tabindex="0" 
+   href="#/maps1"><span class="ng-binding ng-scope">
+  <md-icon md-svg-icon="share"></md-icon>MAPS1
+  </span><!-- ngIf: isSelected() -->
+</a>
+</md-item>
+
+<md-item>
+<a class="md-button md-default-theme" 
+   ng-href="#/positions" 
+   ng-click="go('positions')" 
+   tabindex="0" 
+   href="#/positions"><span class="ng-binding ng-scope">
+  Positions
+  </span><!-- ngIf: isSelected() -->
+</a>
+</md-item>
+
+    </md-list>
+    </md-sidenav>
 
 
  <div layout="column" tabIndex="-1" role="main" flex>
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <md-button class="md-icon-button" aria-label="Settings">
-          <md-icon md-svg-icon="images/menu.svg"></md-icon>
-        </md-button>
-        <h2>
-          <span>Toolbar with Icon Buttons</span>
-        </h2>
-        <span flex></span>
-        <md-menu md-position-mode="target-right target" >
-          <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
-            <md-icon md-menu-origin md-svg-icon="images/menu.svg"></md-icon>
-          </md-button>
-          <md-menu-content width="4" >
-            <md-menu-item ng-repeat="item in [1, 2, 3]">
-              <md-button ng-click="ctrl.announceClick($index)">
-                  <div layout="row">
-                    <p flex>Option {{item}}</p>
-                    <md-icon md-menu-align-target md-svg-icon="images/menu.svg" style="margin: auto 3px auto 0;"></md-icon>
-                  </div>
-              </md-button>
-            </md-menu-item>
-          </md-menu-content>
-        </md-menu>
-      </div>
-    </md-toolbar>
-
+    
     <md-content ng-view md-scroll-y flex layout-padding>
         <ui-view></ui-view>
     </md-content>

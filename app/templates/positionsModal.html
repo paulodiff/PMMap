@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<md-dialog aria-label="Editar" class="dialog-95">
+    <form name="inputForm" novalidate>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" ng-click="regresar()">
+                    <md-icon md-svg-icon="white_back" aria-label="Regresar"></md-icon>
+                    <md-tooltip md-delay="1500" md-autohide="true">Regresar</md-tooltip>
+                </md-button>
+                <h2>{{view.operacion}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="borrar()" ng-show="view.operacion === 'Modificar'">
+                    <md-icon md-svg-icon="white_delete" aria-label="Borrar"></md-icon>
+                    <md-tooltip md-delay="1500" md-autohide="true">Borrar</md-tooltip>
+                </md-button>
+                <md-button class="md-icon-button" ng-click="guardar()" ng-show="view.operacion === 'Agregar' || view.operacion === 'Modificar'" ng-disabled="inputForm.$invalid">
+                    <md-icon md-svg-icon="white_save" aria-label="Guardar"></md-icon>
+                    <md-tooltip md-delay="1500" md-autohide="true">Guardar</md-tooltip>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <md-content layout-padding ng-cloak>
+                <md-input-container>
+                    <label>ID (solo lectura)</label>
+                    <input type="text" readonly name="id" ng-model="view.selectedItem.id" />
+                </md-input-container>
+                <md-input-container>
+                    <label>Name</label>
+                    <input type="text" name="name" required md-maxlength="50" ng-model="view.selectedItem.name" />
+                    <ng-messages for="inputForm.name.$error">
+                        <ng-message when="required">El nombre es obligatorio</ng-message>
+                        <ng-message when="md-maxlength">Use 50 caracteres o menos para el nombre</ng-message>
+                    </ng-messages>
+                </md-input-container>
+                <md-input-container>
+                    <label>Last name</label>
+                    <input type="text" name="lastname" md-maxlength="50" ng-model="view.selectedItem.lastname" />
+                    <ng-messages for="inputForm.lastname.$error">
+                        <ng-message when="md-maxlength">Use 50 caracteres o menos para el nombre</ng-message>
+                    </ng-messages>
+                </md-input-container>
+                <md-input-container>
+                    <label>Email</label>
+                    <input type="text" name="email" required ng-model="view.selectedItem.email" ng-pattern="/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i">
+                    <ng-messages for="inputForm.email.$error">
+                        <ng-message when="required">El correo es obligatorio</ng-message>
+                        <ng-message when="pattern">Email inválido</ng-message>
+                    </ng-messages>
+                </md-input-container>
+                <md-input-container>
+                    <label>Direction</label>
+                    <textarea rows="2" name="direccion" md-maxlength="100" ng-model="view.selectedItem.direction"></textarea>
+                    <ng-messages for="inputForm.direccion.$error">
+                        <ng-message when="md-maxlength">Use 100 caracteres o menos para la dirección</ng-message>
+                    </ng-messages>
+                </md-input-container>
+            </md-content>
+        </md-dialog-content>
+    </form>
+</md-dialog>

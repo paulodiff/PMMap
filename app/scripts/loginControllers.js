@@ -32,6 +32,42 @@ angular.module('myApp.controllers')
              //$ionicSideMenuDelegate.toggleLeft($scope.$$childHead);
         };
           
+    
+        // Menu side bar -----------------------------------------------------------------
+
+
+
+        $scope.menu = [
+                {
+                  link : '',
+                  title: 'Dashboard',
+                  icon: 'share'
+                },
+                {
+                  link : '',
+                  title: 'Friends',
+                  icon: 'google_plus'
+                },
+                {
+                  link : '',
+                  title: 'Messages',
+                  icon: 'twitter'
+                }
+              ];
+              $scope.admin = [
+                {
+                  link : '',
+                  title: 'Trash',
+                  icon: 'delete'
+                },
+                {
+                  link : 'showListBottomSheet($event)',
+                  title: 'Settings',
+                  icon: 'settings'
+                }
+              ];
+
+
         // CONFIGURAZIONI -----------------------------------------------------------------        
                 
         $rootScope.base_url = ENV.apiEndpoint;
@@ -104,7 +140,7 @@ angular.module('myApp.controllers')
                 $state.go('menu.home');
            });
             */
-
+    
 
         }); 
 

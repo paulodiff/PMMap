@@ -12,7 +12,16 @@ TEST di Mappe Google per analisi dati ed utility
 //http://bost.ocks.org/mike/bubble-map/
 //http://carlvlewis.net/tutorial-making-a-geographical-bubble-map/
 
-http://plnkr.co/edit/aGRZzKBgXu6m66AgLIrx?p=preview
+My Plunker!!!
+http://plnkr.co/edit/BoQQoqxlx76dqr4xyf7m?p=preview
+
+
+//Simple CRUD with angular-material and lodash 
+http://embed.plnkr.co/IgNM7l/preview
+
+//Angular Material Starter
+http://codepen.io/kyleledbetter/pen/gbQOaV
+
 
 Progetto per la realizzazione di reportistica Sismic
 

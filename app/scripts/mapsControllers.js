@@ -2,23 +2,19 @@
 
 /* Controllers */
 
-
-
 //angular.module('myApp.controllers', [])
 angular.module('myApp.controllers')
 
 .controller('MapsController', 
-             ['$scope', '$state', '$compile','$location', 'Restangular', 'uiGmapGoogleMapApi', '$filter', 'Session', '$log', '$timeout', 'ENV',
-     function( $scope,   $state,   $compile,  $location,    Restangular,  uiGmapGoogleMapApi,$filter,   Session,   $log,   $timeout, ENV) {
+             ['$scope', '$state', '$compile','$location', 'Restangular', 'uiGmapGoogleMapApi', '$filter', 'Session', '$log', '$timeout',  '$mdDialog', 'ENV',
+     function( $scope,   $state,   $compile,  $location,   Restangular,   uiGmapGoogleMapApi,   $filter,   Session,   $log,   $timeout,   $mdDialog, ENV) {
  
 
       $log.log('MapsController then . ...');
 
 
-$scope.staticMarker = [];
-$scope.randomMarkers = [];
-
-
+      $scope.staticMarker = [];
+      $scope.randomMarkers = [];
 
 
 $scope.randomMarkers = [
@@ -131,7 +127,12 @@ $scope.circles = [
         $log.log('uiGmapGoogleMapApi then . ...');
         $log.log(maps);
 
-        $scope.map = { center: { latitude: 44.0357100000, longitude: 12.5573200000 }, zoom: 12 };
+        maps.visualRefresh = true;
+      
+      // search box parameters...
+        $scope.map = { center: { latitude: 44.0357100000, longitude: 12.5573200000 }, zoom: 12, idkey: 'place_id' };
+
+
         //$scope.refreshMap();
 
         geocoder = new maps.Geocoder();
@@ -630,6 +631,27 @@ function getRandomColor() {
       */
           
  };
+
+
+ // Apre la finestra di dialogo per la selezione della posizione corrente
+ $scope.getPosition = function (){
+
+
+   $mdDialog.show(
+      $mdDialog.alert()
+        .parent(angular.element(document.querySelector('#popupContainer')))
+        .clickOutsideToClose(true)
+        .title('This is an alert title')
+        .content('You can specify some description text in here.')
+        .ariaLabel('Alert Dialog Demo')
+        .ok('Got it!')
+        .targetEvent(ev)
+    );
+
+
+
+ }
+
 
 
 
